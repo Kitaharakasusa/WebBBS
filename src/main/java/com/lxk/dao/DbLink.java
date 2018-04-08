@@ -1,10 +1,11 @@
 package com.lxk.dao;
 
-
 import java.sql.*;
 
-//数据库连接类,初始化数据库连接
-public class DbLink {
+/**
+ * Created by Sakura on 2017/6/6.
+ */
+public class DBlink {
     public static Connection connection = null;
     public static Statement statement = null;
     private static  int inId;
@@ -14,6 +15,7 @@ public class DbLink {
     }
     public static void DoNoResultSql(String sql){
         try{
+            System.out.println(sql);
             statement.execute(sql);
         }
         catch (Exception e) {
@@ -24,10 +26,10 @@ public class DbLink {
     {
         ResultSet rs = null;
         try {
-            rs=statement.executeQuery(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+                 rs=statement.executeQuery(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         return rs;
     }
     //连接
@@ -62,4 +64,5 @@ public class DbLink {
             }
         }
     }
+
 }
